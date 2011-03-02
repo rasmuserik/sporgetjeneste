@@ -1,3 +1,4 @@
+
 function genWord() {
     var i, length, s;
     length = 2+0|(Math.random() * 8);
@@ -36,12 +37,14 @@ function slidein() {
     current.setAttribute("id", "prev");
     next.setAttribute("id", "current");
     current.style.top = "-" + height(next);
-    prev.style.display = "none"
+    prev.parentNode.removeChild(prev);
+    //prev.style.display = "none"
 }
 
 function handleClick() {
     next = document.createElement("div");
     next.setAttribute("id", "next");
+    next.html = "<h1>Hello world</h1>";
     next.appendChild(document.createTextNode(nextText()));
     gId("container").insertBefore(next, gId("current"));
     var current = gId("current");
