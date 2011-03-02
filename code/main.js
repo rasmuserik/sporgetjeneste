@@ -48,6 +48,7 @@ function slidein() {
 function handleClick() {
     next = document.createElement("div");
     next.setAttribute("id", "next");
+    next.setAttribute("onClick", "handleClick()");
     next.innerHTML= '<div class="topbar">Hello world</div>' + nextText();
     //next.appendChild(document.createTextNode(nextText()));
     gId("container").insertBefore(next, gId("current"));

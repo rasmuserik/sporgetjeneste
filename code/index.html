@@ -6,10 +6,12 @@
     <script data-main="main" src="require.js"></script>
 </head> 
 
-<body onClick="handleClick()"> 
+<body>
 <div id="container">
-<div id="current">
+<div id="current" onClick="handleClick()">
+<button onClick="handleClick()">
 click me...
+</button>
 </div>
 <div id="prev"></div>
 </div>
