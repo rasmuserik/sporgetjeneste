@@ -49,7 +49,7 @@ function handleClick() {
     next = document.createElement("div");
     next.setAttribute("id", "next");
     next.setAttribute("onClick", "handleClick()");
-    next.innerHTML= '<div class="topbar">Hello world</div>' + nextText();
+    next.innerHTML= '<div class="topbar">Sp&oslash;rgetjenesten</div><div class="contentbox">' + nextText() + '</div><div>&nbsp;</div>';
     //next.appendChild(document.createTextNode(nextText()));
     gId("container").insertBefore(next, gId("current"));
     var current = gId("current");
