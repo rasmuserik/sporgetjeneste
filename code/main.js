@@ -11,7 +11,7 @@ function genWord() {
 
 function nextText() {
     var length, i, s;
-    length = 5+0|(Math.random() * 50);
+    length = 5+0|(Math.random() * 250);
     s = "";
     for(i=0;i<length;++i) {
         s += genWord() + " ";

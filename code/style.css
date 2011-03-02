@@ -10,9 +10,8 @@ body {
 }
 
 .topbar {
-    /*background: -webkit-gradient(linear, left top, left bottom, from(#b0bccc), to(#6d84a3));*/
-    background: -webkit-gradient(linear, left top, left bottom, from(#bcd), to(#78a));
-    background: -moz-linear-gradient(top,  #cdf,  #79c);
+    background: -webkit-gradient(linear, left top, left bottom, from(#b0bccc), to(#6d84a3));
+    background: -moz-linear-gradient(top,  #b0bccc,  #6d84a3);
     border-style: outset;
     border-color: #fff;
     border-width: 1px 0px 1px 0px;
@@ -22,12 +21,13 @@ body {
     height: 22px;
     color: #fff;
     font-weight: bold;
-    text-shadow: #000 1px 1px 3px;
+    text-shadow: rgba(0,0,0,0.5) -0px -1px 2px;
 }
 
 #container { 
     position: relative;
-    background-color: #ccc; 
+    background-color: #747474; 
+    background-image: url("background.png"); 
     width: 320px;
     overflow: hidden; 
     margin: 0; 
