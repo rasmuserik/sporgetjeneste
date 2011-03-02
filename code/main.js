@@ -1,3 +1,6 @@
+define(function(require, exports, module) {
+jsonml = require("jsonml");
+console.log(jsonml);
 
 function genWord() {
     var i, length, s;
@@ -11,7 +14,7 @@ function genWord() {
 
 function nextText() {
     var length, i, s;
-    length = 5+0|(Math.random() * 250);
+    length = 5+0|(Math.random() * 50);
     s = "";
     for(i=0;i<length;++i) {
         s += genWord() + " ";
@@ -45,14 +48,21 @@ function slidein() {
     //prev.style.display = "none"
 }
 
-function handleClick() {
+handleClick = function() {
     next = document.createElement("div");
     next.setAttribute("id", "next");
     next.setAttribute("onClick", "handleClick()");
-    next.innerHTML= '<div class="topbar">Sp&oslash;rgetjenesten</div><div class="contentbox">' + nextText() + '</div><div>&nbsp;</div>';
-    //next.appendChild(document.createTextNode(nextText()));
-    gId("container").insertBefore(next, gId("current"));
+    next.innerHTML= [ 
+            ["div", {"class": "topbar"}, "Sp\xf8rgetjenesten"], 
+            ["div", {"class": "contentbox"}, nextText()],
+            ["div", {"class": "contentbox"}, nextText()],
+            ["div", {"class": "contentbox"}, nextText()],
+            ["div", {"class": "topbar"}, "Hello", "world"]
+        ].map(jsonml.toXml).join('');
     var current = gId("current");
+    gId("container").insertBefore(next, current);
     current.style.top = "-" + height(next);
-    setTimeout("slidein()", 0);
+    setTimeout(slidein, 0);
 }
+
+});
