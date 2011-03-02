@@ -27,7 +27,7 @@ body {
 #container { 
     position: relative;
     background-color: #747474; 
-    background-image: url("background.png"); 
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAABCAIAAACdaSOZAAAAAXNSR0IArs4c6QAAABZJREFUCNdjPHrmCgMC/GNjY2NgYAAAN00Dd2Fg5+4AAAAASUVORK5CYII=");
     width: 320px;
     overflow: hidden; 
     margin: 0; 
