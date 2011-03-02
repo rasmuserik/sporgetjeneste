@@ -1,0 +1,64 @@
+/*
+currently experimenting with slide-in and layout,
+hardcoded pixel sizes are to be replaced with javascript-calculated styles
+*/
+body { 
+    margin: 0; 
+    padding: 0; 
+}
+
+.topbar {
+    background: -webkit-gradient(linear, left top, left bottom, from(#ccf), to(#aac));
+    background: -moz-linear-gradient(top,  #cdf,  #79c);
+    border-style: groove;
+    border-color: #eee;
+    border-width: 0px 0px 2px 0px;
+    padding: 4px;
+    height: 32px;
+}
+
+#container { 
+    position: relative;
+    left: 100px;
+    background-color: #ccc; 
+    width: 200px;
+    overflow: hidden; 
+    -webkit-transition: height 0.5s ease-in-out;
+    -moz-transition: height 0.5s ease-in-out;
+    -o-transition: height 0.5s ease-in-out;
+    transition: height 0.5s ease-in-out;
+}
+
+#prev { 
+    position: relative;
+    left: -200px;
+    width: 200px;
+    //background-color: #ff0; 
+    -webkit-transition: left 0.5s ease-in-out;
+    -moz-transition: left 0.5s ease-in-out;
+    -o-transition: left 0.5s ease-in-out;
+    transition: left 0.5s ease-in-out;
+}
+
+#current { 
+    position: relative;
+    left: 0px;
+    width: 200px;
+    //background-color: #f00; 
+    -webkit-transition: left 0.5s ease-in-out;
+    -moz-transition: left 0.5s ease-in-out;
+    -o-transition: left 0.5s ease-in-out;
+    transition: left 0.5s ease-in-out;
+}
+
+#next { 
+    position: relative;
+    left: 200px;
+    width: 200px;
+    //background-color: #0f0; 
+    -webkit-transition: left 0.5s ease-in-out;
+    -moz-transition: left 0.5s ease-in-out;
+    -o-transition: left 0.5s ease-in-out;
+    transition: left 0.5s ease-in-out;
+}
+
