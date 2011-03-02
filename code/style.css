@@ -5,24 +5,33 @@ hardcoded pixel sizes are to be replaced with javascript-calculated styles
 body { 
     margin: 0; 
     padding: 0; 
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
 }
 
 .topbar {
-    background: -webkit-gradient(linear, left top, left bottom, from(#ccf), to(#aac));
+    /*background: -webkit-gradient(linear, left top, left bottom, from(#b0bccc), to(#6d84a3));*/
+    background: -webkit-gradient(linear, left top, left bottom, from(#bcd), to(#78a));
     background: -moz-linear-gradient(top,  #cdf,  #79c);
-    border-style: groove;
-    border-color: #eee;
-    border-width: 0px 0px 2px 0px;
-    padding: 4px;
-    height: 32px;
+    border-style: outset;
+    border-color: #fff;
+    border-width: 1px 0px 1px 0px;
+    text-align: center;
+    padding: 10px;
+    font-size: 22px;
+    height: 22px;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: #000 1px 1px 3px;
 }
 
 #container { 
     position: relative;
-    left: 100px;
     background-color: #ccc; 
-    width: 200px;
+    width: 320px;
     overflow: hidden; 
+    margin: 0; 
+    padding: 0; 
     -webkit-transition: height 0.5s ease-in-out;
     -moz-transition: height 0.5s ease-in-out;
     -o-transition: height 0.5s ease-in-out;
@@ -31,9 +40,10 @@ body {
 
 #prev { 
     position: relative;
-    left: -200px;
-    width: 200px;
-    //background-color: #ff0; 
+    left: -320px;
+    width: 320px;
+    margin: 0; 
+    padding: 0; 
     -webkit-transition: left 0.5s ease-in-out;
     -moz-transition: left 0.5s ease-in-out;
     -o-transition: left 0.5s ease-in-out;
@@ -43,8 +53,9 @@ body {
 #current { 
     position: relative;
     left: 0px;
-    width: 200px;
-    //background-color: #f00; 
+    width: 320px;
+    margin: 0; 
+    padding: 0; 
     -webkit-transition: left 0.5s ease-in-out;
     -moz-transition: left 0.5s ease-in-out;
     -o-transition: left 0.5s ease-in-out;
@@ -53,8 +64,8 @@ body {
 
 #next { 
     position: relative;
-    left: 200px;
-    width: 200px;
+    left: 320px;
+    width: 320px;
     //background-color: #0f0; 
     -webkit-transition: left 0.5s ease-in-out;
     -moz-transition: left 0.5s ease-in-out;

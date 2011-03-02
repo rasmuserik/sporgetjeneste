@@ -29,23 +29,27 @@ function gId(id) {
 
 function slidein() {
     window.scroll(0,0);
-    var current = gId("current");
+
     var prev = gId("prev");
-    var next = gId("next");
-    gId("container").style.height = height(next);
-    prev.removeAttribute("id");
-    current.setAttribute("id", "prev");
-    next.setAttribute("id", "current");
-    current.style.top = "-" + height(next);
     prev.parentNode.removeChild(prev);
+
+    var current = gId("current");
+    current.setAttribute("id", "prev");
+    //current.style.top = "-" + height(next);
+
+    var next = gId("next");
+    next.setAttribute("id", "current");
+
+    gId("container").style.height = height(next);
+
     //prev.style.display = "none"
 }
 
 function handleClick() {
     next = document.createElement("div");
     next.setAttribute("id", "next");
-    next.html = "<h1>Hello world</h1>";
-    next.appendChild(document.createTextNode(nextText()));
+    next.innerHTML= '<div class="topbar">Hello world</div>' + nextText();
+    //next.appendChild(document.createTextNode(nextText()));
     gId("container").insertBefore(next, gId("current"));
     var current = gId("current");
     current.style.top = "-" + height(next);
