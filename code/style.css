@@ -38,7 +38,7 @@ body {
     position: relative;
     background-color: #747474; 
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAABCAIAAACdaSOZAAAAAXNSR0IArs4c6QAAABZJREFUCNdjPHrmCgMC/GNjY2NgYAAAN00Dd2Fg5+4AAAAASUVORK5CYII=");
-    width: 320px;
+    width: 100%;
     overflow: hidden; 
     margin: 0; 
     padding: 0; 
@@ -50,8 +50,8 @@ body {
 
 #prev { 
     position: relative;
-    left: -320px;
-    width: 320px;
+    left: -100%;
+    width: 100%;
     margin: 0; 
     padding: 0; 
     -webkit-transition: left 0.5s ease-in-out;
@@ -63,7 +63,7 @@ body {
 #current { 
     position: relative;
     left: 0px;
-    width: 320px;
+    width: 100%;
     margin: 0; 
     padding: 0; 
     -webkit-transition: left 0.5s ease-in-out;
@@ -74,8 +74,8 @@ body {
 
 #next { 
     position: relative;
-    left: 320px;
-    width: 320px;
+    left: 100%;
+    width: 100%;
     //background-color: #0f0; 
     -webkit-transition: left 0.5s ease-in-out;
     -moz-transition: left 0.5s ease-in-out;
