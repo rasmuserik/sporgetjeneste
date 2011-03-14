@@ -49,6 +49,21 @@ var pages = {
             ["option", {value: "school4"}, "Universitetsuddannelse eller forskning"]
         ],
         ["button", {id: "ask"}, "Sp\xf8rg"]
+    ],
+    ask: ["page", {title: "Sender sp\xf8rgsm\xa5l"}, 
+        ["div", "spørgsmålet afsendt, du vil få svar per mail"],
+        ["button", {id: "foo"}, "knap 1"],
+        ["button", {id: "bar"}, "knap 2"],
+        ["button", {id: "main"}, "main"]
+    ],
+    foo: ["page"
+        ["div", "1"],
+        ["button", {id: "bar"}, "knap 2"],
+    ],
+    bar: ["page", {title: "2"},
+        ["div", "2"],
+        ["button", {id: "bar"}, "knap 2"],
+        ["button", {id: "main"}, "main"]
     ]
 };
 function dispatch(name, args) {
@@ -60,7 +75,7 @@ function main() {
 }
 
 require.ready(function() {
-    handleClick();
+    main();
 });
 
 });
