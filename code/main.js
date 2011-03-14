@@ -22,11 +22,11 @@ function nextText() {
 }
 
 handleClick = function() {
-    mui.showPage([
-            ["div", {"class": "header"}, "Sp\xf8rgetjenesten"], 
-            ["div", {"class": "contentbox"}, nextText()],
-            ["div", {"class": "contentbox"}, nextText()],
-            ["div", {"class": "contentbox"}, nextText()],
+    mui.showPage(["page", {"title": "Sp\xf8rgetjenesten"}, 
+            ["div", nextText()],
+            ["div", nextText()],
+            ["div", nextText()],
+            ["div", nextText()]
             ]);
 }
 
