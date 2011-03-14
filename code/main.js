@@ -29,6 +29,36 @@ handleClick = function() {
             ["div", {"class": "contentbox"}, nextText()],
             ]);
 }
+
+var pages = {
+    main: ["page", {title: "Sp\xf8rgetjenesten"},
+        ["inputarea", {name: "question", label: "Mit sp\xf8rgsm\xa5l"}],
+        ["choice", {name: "deadline", label: "Tidsfrist"},
+            ["option", {value: "-1"}, "ingen"],
+            ["option", {value: "2"}, "2 timer"],
+            ["option", {value: "24"}, "24 timer"],
+            ["option", {value: "48"}, "2 dage"],
+            ["option", {value: "168"}, "1 uger"]
+        ],
+        ["choice", {name: "use", label: "Svaret skal bruges til"},
+            ["option", {value: "personal"}, "Almen interesse eller hobby"],
+            ["option", {value: "business"}, "Erhverv"],
+            ["option", {value: "school1"}, "Folkeskole"],
+            ["option", {value: "school2"}, "Gymnasium, EUC, VUC, SOSU eller anden kort videreg\xa51ende uddannelse"],
+            ["option", {value: "school3"}, "Mellemlang eller lang videregående uddannelse"],
+            ["option", {value: "school4"}, "Universitetsuddannelse eller forskning"]
+        ],
+        ["button", {id: "ask"}, "Sp\xf8rg"]
+    ]
+};
+function dispatch(name, args) {
+    mui.showPage(pages[name]);
+}
+function main() {
+    mui.setDispatch(dispatch);
+    dispatch("main");
+}
+
 require.ready(function() {
     handleClick();
 });
