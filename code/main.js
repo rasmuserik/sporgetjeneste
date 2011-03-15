@@ -23,10 +23,10 @@ function nextText() {
 
 handleClick = function() {
     mui.showPage(["page", {"title": "Sp\xf8rgetjenesten"}, 
-            ["div", nextText()],
-            ["div", nextText()],
-            ["div", nextText()],
-            ["div", nextText()]
+            ["text", nextText()],
+            ["text", nextText()],
+            ["text", nextText()],
+            ["text", nextText()]
             ]);
 }
 
@@ -51,17 +51,17 @@ var pages = {
         ["button", {id: "ask"}, "Sp\xf8rg"]
     ],
     ask: ["page", {title: "Sender sp\xf8rgsm\xa5l"}, 
-        ["div", "spørgsmålet afsendt, du vil få svar per mail"],
+        ["text", "spørgsmålet afsendt, du vil få svar per mail"],
         ["button", {id: "foo"}, "knap 1"],
         ["button", {id: "bar"}, "knap 2"],
         ["button", {id: "main"}, "main"]
     ],
     foo: ["page"
-        ["div", "1"],
+        ["text", "1"],
         ["button", {id: "bar"}, "knap 2"],
     ],
     bar: ["page", {title: "2"},
-        ["div", "2"],
+        ["text", "2"],
         ["button", {id: "bar"}, "knap 2"],
         ["button", {id: "main"}, "main"]
     ]
