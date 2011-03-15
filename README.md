@@ -1,5 +1,8 @@
 # Mobile grænseflader til Spørgetjenesten
 
+To build the application, first retrieve dependencies by calling `./update_externals.sh`, and then either `cd android; ant debug install` or `open ios/AppDBC.xcodeproj`.
+
+Directory structure:
 - `code` - the source of the application
 - `android` - Android build environment, for example `ant debug install` build debug version and installs it on the device or emulator
 - `ios` - iOSbuild environment, for example `open AppDBC.xcodeproj` opens xcode, where it is possible to build+start emulator
