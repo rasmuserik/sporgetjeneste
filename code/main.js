@@ -21,51 +21,16 @@ function nextText() {
     return s;
 }
 
-handleClick = function() {
-    dispatch('main');
+function a() {
+    mui.showPage(["page", {title: "Sp\xf8rgsm\xe5l afsendt"},
+        ["text", "du vil f\xe5 svar per mail.... sample text widget here... some more text, blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah"], 
+        ["button", {id: "main"}, "Nyt sp\xf8rgsm\xe5l"]]);
+    handleClick = main;
 }
 
-var pages = {
-    main: ["page", {title: "Sp\xf8rgetjenesten"},
-        ["inputarea", {name: "question", label: "Mit sp\xf8rgsm\xa5l"}],
-        ["choice", {name: "deadline", label: "Tidsfrist"},
-            ["option", {value: "-1"}, "ingen"],
-            ["option", {value: "2"}, "2 timer"],
-            ["option", {value: "24"}, "24 timer"],
-            ["option", {value: "48"}, "2 dage"],
-            ["option", {value: "168"}, "1 uger"]
-        ],
-        ["choice", {name: "use", label: "Svaret skal bruges til"},
-            ["option", {value: "personal"}, "Almen interesse eller hobby"],
-            ["option", {value: "business"}, "Erhverv"],
-            ["option", {value: "school1"}, "Folkeskole"],
-            ["option", {value: "school2"}, "Gymnasium, EUC, VUC, SOSU eller anden kort videreg\xa51ende uddannelse"],
-            ["option", {value: "school3"}, "Mellemlang eller lang videregående uddannelse"],
-            ["option", {value: "school4"}, "Universitetsuddannelse eller forskning"]
-        ],
-        ["button", {id: "ask"}, "Sp\xf8rg"]
-    ],
-    ask: ["page", {title: "Sender sp\xf8rgsm\xa5l"}, 
-        ["text", "spørgsmålet afsendt, du vil få svar per mail"],
-        ["button", {id: "foo"}, "knap 1"],
-        ["button", {id: "bar"}, "knap 2"],
-        ["button", {id: "main"}, "main"]
-    ],
-    foo: ["page"
-        ["text", "1"],
-        ["button", {id: "bar"}, "knap 2"],
-    ],
-    bar: ["page", {title: "2"},
-        ["text", "2"],
-        ["button", {id: "bar"}, "knap 2"],
-        ["button", {id: "main"}, "main"]
-    ]
-};
 function dispatch(name, args) {
-//    mui.showPage(pages[name]);
     mui.showPage(["page", {title: "Sp\xf8rgetjenesten"},
-        ["inputarea", {name: "question", label: "Mit sp\xf8rgsm\xa5l"}],
-        ["text", "text widget here... some more text, blah blah blah blah blah blah blah blah blah blah blah blah blah"],
+        ["inputarea", {name: "question", label: "Mit sp\xf8rgsm\xe5l"}],
         ["choice", {name: "deadline", label: "Tidsfrist"},
             ["option", {value: "-1"}, "ingen"],
             ["option", {value: "2"}, "2 timer"],
@@ -77,8 +42,8 @@ function dispatch(name, args) {
             ["option", {value: "personal"}, "Almen interesse eller hobby"],
             ["option", {value: "business"}, "Erhverv"],
             ["option", {value: "school1"}, "Folkeskole"],
-            ["option", {value: "school2"}, "Gymnasium, EUC, VUC, SOSU eller anden kort videreg\xa51ende uddannelse"],
-            ["option", {value: "school3"}, "Mellemlang eller lang videregående uddannelse"],
+            ["option", {value: "school2"}, "Gymnasium, eller lignende"],
+            ["option", {value: "school3"}, "Laengere videregaaende uddannelse"],
             ["option", {value: "school4"}, "Universitetsuddannelse eller forskning"]
         ],
         ["button", {id: "ask"}, "Sp\xf8rg"]
@@ -88,6 +53,7 @@ function dispatch(name, args) {
 function main() {
     mui.setDispatch(dispatch);
     dispatch("main");
+    handleClick = a;
 }
 
 require.ready(function() {
