@@ -2,6 +2,8 @@
 
 To build the application, first retrieve dependencies by calling `./update_externals.sh`, and then either `cd android; ant debug install` or `open ios/AppDBC.xcodeproj`.
 
+Android and PhoneGap for xcode has to be installed for the respective platforms.
+
 Directory structure:
 - `code` - the source of the application
 - `android` - Android build environment, for example `ant debug install` build debug version and installs it on the device or emulator
