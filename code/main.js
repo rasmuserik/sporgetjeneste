@@ -1,35 +1,6 @@
-define(function(require, exports, module) {
-mui = require("mui");
-
-function genWord() {
-    var i, length, s;
-    length = 2+0|(Math.random() * 8);
-    s = "";
-    for(i=0;i<length;++i) {
-        s += String.fromCharCode(97+(0|(Math.random()*25)));
-    }
-    return s;
-}
-
-function nextText() {
-    var length, i, s;
-    length = 5+0|(Math.random() * 50);
-    s = "";
-    for(i=0;i<length;++i) {
-        s += genWord() + " ";
-    }
-    return s;
-}
-
-function a() {
-    mui.showPage(["page", {title: "Sp\xf8rgsm\xe5l afsendt"},
-        ["text", "du vil f\xe5 svar per mail.... sample text widget here... some more text, blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah"], 
-        ["button", {id: "main"}, "Nyt sp\xf8rgsm\xe5l"]]);
-    handleClick = main;
-}
-
-function dispatch(name, args) {
+function muiCallback(mui) {
     mui.showPage(["page", {title: "Sp\xf8rgetjenesten"},
+        ["text", "text-widget..."],
         ["inputarea", {name: "question", label: "Mit sp\xf8rgsm\xe5l"}],
         ["choice", {name: "deadline", label: "Tidsfrist"},
             ["option", {value: "-1"}, "ingen"],
@@ -49,15 +20,3 @@ function dispatch(name, args) {
         ["button", {id: "ask"}, "Sp\xf8rg"]
     ]);
 }
-
-function main() {
-    mui.setDispatch(dispatch);
-    dispatch("main");
-    handleClick = a;
-}
-
-require.ready(function() {
-    main();
-});
-
-});
