@@ -1,6 +1,7 @@
 function skalUdfyldes(s) {
     return s.length>0 || "Skal udfyldes.";
 }
+
 function muiCallback(mui) {
     ({"start": function() {
         mui.showPage(["page", {title: "Sp\xf8rg biblioteket"},
@@ -24,12 +25,14 @@ function muiCallback(mui) {
                 ],
                 ["input", {type: "email", name: "email", label: "Min emailadresse"}]
             ],
-            ["button", {id: "ask"}, "Sp\xf8rg"]
+            ["button", {id: "ask"}, "Sp\xf8rg"],
+            ["button", {id: "settings"}, "Indstillinger"]
         ]);
     }, "settings": function() {
        mui.showPage(["page", {title: "Indstillinger"},
-         ["input", {name: "email", label: "Min emailadresse"}],
-         ["input", {name: "mobile", label: "Mit mobilnummer"}],
+         ["input", {type: "email", name: "email", label: "Min emailadresse"}],
+         ["input", {type: "tel", name: "mobile", label: "Mit mobilnummer"}],
+         ["button", {id: "start"}, "Tilbage til start"]
        ]);
     }, "ask": function() {
         mui.loading();
