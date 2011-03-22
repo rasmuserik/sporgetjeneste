@@ -17,13 +17,13 @@ function muiCallback(mui) {
                 ["option", {value: "school3"}, "Videreg\xe5ende uddannelse"],
                 ["option", {value: "school4"}, "Universitet/Forskning"]
             ],
-            ["inputarea", {name: "email", label: "Min emailadresse"}],
+            ["lineinput", {name: "email", label: "Min emailadresse"}],
             ["button", {id: "ask"}, "Sp\xf8rg"]
         ]);
     }, "settings": function() {
        mui.showPage(["page", {title: "Indstillinger"},
-         ["inputarea", {name: "email", label: "Min emailadresse"}],
-         ["inputarea", {name: "mobile", label: "Mit mobilnummer"}],
+         ["lineinput", {name: "email", label: "Min emailadresse"}],
+         ["lineinput", {name: "mobile", label: "Mit mobilnummer"}],
        ]);
     }, "ask": function() {
         mui.loading();
