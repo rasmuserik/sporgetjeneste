@@ -1,29 +1,35 @@
+function skalUdfyldes(s) {
+    return s.length>0 || "Skal udfyldes.";
+}
 function muiCallback(mui) {
     ({"start": function() {
         mui.showPage(["page", {title: "Sp\xf8rg biblioteket"},
-            ["inputarea", {name: "question", label: "Mit sp\xf8rgsm\xe5l"}],
-            ["choice", {name: "deadline", label: "Tidsfrist"},
-                ["option", {value: "-1"}, "ingen"],
-                ["option", {value: "2"}, "2 timer"],
-                ["option", {value: "24"}, "24 timer"],
-                ["option", {value: "48"}, "2 dage"],
-                ["option", {value: "168"}, "1 uger"]
+            ["section",
+                ["input", {type: "textbox", name: "question", label: "Mit sp\xf8rgsm\xe5l", validate: skalUdfyldes}]],
+            ["section",
+                ["choice", {name: "deadline", label: "Tidsfrist"},
+                    ["option", {value: "-1"}, "ingen"],
+                    ["option", {value: "2"}, "2 timer"],
+                    ["option", {value: "24"}, "24 timer"],
+                    ["option", {value: "48"}, "2 dage"],
+                    ["option", {value: "168"}, "1 uger"]
+                ],
+                ["choice", {name: "use", label: "Svaret skal bruges til"},
+                    ["option", {value: "personal"}, "Almen interesse"],
+                    ["option", {value: "business"}, "Erhverv"],
+                    ["option", {value: "school1"}, "Folkeskole"],
+                    ["option", {value: "school2"}, "Gymnasium"],
+                    ["option", {value: "school3"}, "Videreg\xe5ende uddannelse"],
+                    ["option", {value: "school4"}, "Universitet/Forskning"]
+                ],
+                ["input", {type: "email", name: "email", label: "Min emailadresse"}]
             ],
-            ["choice", {name: "use", label: "Svaret skal bruges til"},
-                ["option", {value: "personal"}, "Almen interesse"],
-                ["option", {value: "business"}, "Erhverv"],
-                ["option", {value: "school1"}, "Folkeskole"],
-                ["option", {value: "school2"}, "Gymnasium"],
-                ["option", {value: "school3"}, "Videreg\xe5ende uddannelse"],
-                ["option", {value: "school4"}, "Universitet/Forskning"]
-            ],
-            ["lineinput", {name: "email", label: "Min emailadresse"}],
             ["button", {id: "ask"}, "Sp\xf8rg"]
         ]);
     }, "settings": function() {
        mui.showPage(["page", {title: "Indstillinger"},
-         ["lineinput", {name: "email", label: "Min emailadresse"}],
-         ["lineinput", {name: "mobile", label: "Mit mobilnummer"}],
+         ["input", {name: "email", label: "Min emailadresse"}],
+         ["input", {name: "mobile", label: "Mit mobilnummer"}],
        ]);
     }, "ask": function() {
         mui.loading();
@@ -46,8 +52,8 @@ function muiCallback(mui) {
                 outputType: "json"}, function(result) {
                   if (result.createQuestionResponse.questionReceipt.$ === "Ack") {
                     mui.showPage(["page", {title: "Sp\xf8rg biblioteket"}, 
-                      ["text", "Sp\xf8rgsm\xe5let er afleveret. Du vil f\xe5 svar", deadline, email, "."], 
-                      ["button", {id: "start"}, "Nyt sp\xf8rgsm\xe5l"]
+                      ["section", ["text", "Sp\xf8rgsm\xe5let er afleveret. Du vil f\xe5 svar", deadline, email, "."], 
+                      ["button", {id: "start"}, "Nyt sp\xf8rgsm\xe5l"]]
                     ]);
                   } else {
                     mui.showPage(["page", {title: "Sp\xf8rg biblioteket"}, 
