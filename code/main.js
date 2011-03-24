@@ -1,6 +1,6 @@
 require("xmodule").def("main",function(){
 
-require("muiApp").setMain(main);
+require("mui").setMain(main);
 
 function skalUdfyldes(s) {
     return s.length>0 || "Skal udfyldes.";
