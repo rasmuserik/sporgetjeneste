@@ -9,8 +9,7 @@ function skalUdfyldes(s) {
 function main(mui) {
     mui.showPage(["page", {title: "Sp\xf8rg biblioteket"},
         ["section",
-            ["input", {type: "textbox", name: "question", label: "Mit sp\xf8rgsm\xe5l", validate: skalUdfyldes}]],
-        ["section",
+            ["input", {type: "textbox", name: "question", label: "Mit sp\xf8rgsm\xe5l", validate: skalUdfyldes}],
             ["choice", {name: "deadline"},
                 ["option", {value: "choose"}, "V\u00e6lg tidsfrist..."],
                 ["option", {value: "-1"}, "ingen"],
@@ -69,7 +68,7 @@ function ask(mui) {
       answer = " via sms til " + mui.form.mobile;
     }
 
-    mui.callJsonpWebservice("http://metode.dbc.dk/~fvs/OpenLibrary/OpenQuestion/trunk/server.php", "callback", {
+    mui.callJsonpWebservice("http://didicas.dbc.dk/openquestion.addi.dk/trunk/", "callback", {
         action: "createQuestion",
         agencyId: "150024",
         qandaServiceName: "Biblioteksvagten",
