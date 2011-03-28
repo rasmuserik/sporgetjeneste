@@ -1,0 +1,23 @@
+- api platform abstraction layer
+    - pages 
+        - jsonml ui description
+        - transition, smart-phone oriented
+        - elements: sections, input(textbox,tel,email,...), choice, buttons, text
+    - webservice calls    
+    - loading screen
+    - localStorage
+    - module support
+        - x-platform: sjss/browser - CommonJS-compatible.
+        - dependency backtracking and loading
+        - external modules such as underscore and guaranteed ES5-compatibility
+- sporgetjeneste-app
+    - packaging in phonegap
+        - running on Android
+        - running on iOS
+        - potentially run on Palm, BlackBerry, Symbian, Windows Mobile, Meego and Bada
+- infrastructure
+    - found test framework, jasmine, not fully integrated yet
+
+- extras
+    - jsonml
+    - wap-backend - proof of concept 
