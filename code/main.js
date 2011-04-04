@@ -49,11 +49,11 @@ function settings(mui) {
 
 function saveSettings(mui) {
   mui.loading();
-  mui.storage.setItem('email', mui.form.email);
+  mui.storage.setItem('email', mui.formValue("email"));
   var email = mui.storage.getItem('email');
-  mui.storage.setItem('mobile', mui.form.mobile);
+  mui.storage.setItem('mobile', mui.formValue("mobile"));
   var mobile = mui.storage.getItem('mobile');
-  mui.storage.setItem('answer', mui.form.answer);
+  mui.storage.setItem('answer', mui.formValue("answer"));
   var answer = mui.storage.getItem('answer');
   mui.showPage(["page", {title: "Indstillinger"},
       ["section",
@@ -69,8 +69,8 @@ function saveSettings(mui) {
 function ask(mui) {     
   mui.loading();
   var deadline = "";
-  if (mui.form.deadline !== "-1" && mui.form.deadline !== "choose" ) {
-    deadline = " indenfor de n\xe6ste " + mui.form.deadline + " timer";
+  if (mui.formValue("deadline") !== "-1" && mui.formValue("deadline") !== "choose" ) {
+    deadline = " indenfor de n\xe6ste " + mui.formValue("deadline") + " timer";
   }
   var answer = mui.storage.getItem('answer');
   var email = mui.storage.getItem('email');
@@ -85,9 +85,9 @@ function ask(mui) {
     { action: "createQuestion",
       agencyId: "150024",
       qandaServiceName: "Biblioteksvagten",
-      questionContent: mui.form.question,
-      questionDeadline: mui.form.deadline,
-      questionUsage: mui.form.use,
+      questionContent: mui.formValue("question"),
+      questionDeadline: mui.formValue("deadline"),
+      questionUsage: mui.formValue("use"),
       userEmail: email,
       userMobilePhone: mobile,
       userAnswerPreference: answer,
