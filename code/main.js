@@ -5,22 +5,21 @@ function main(mui) {
   var email = mui.storage.getItem('email');
   var mobile = mui.storage.getItem('mobile');
   var answer = mui.storage.getItem('answer');
-  if (answer === "choose" || (answer === "email" && email === "") || (answer === "sms" && mobile === "")) {
+
+  if (!answer || (answer === "email" && !email) || (answer === "sms" && !mobile)) {
     settings(mui);
     return;
   }
   mui.showPage(["page", {title: "Sp\xf8rg biblioteket"},
       ["section",
         ["input", {type: "textbox", name: "question", label: "Mit sp\xf8rgsm\xe5l"}],
-        ["choice", {name: "deadline"},
-          ["option", {value: "choose"}, "V\xe6lg tidsfrist..."],
+        ["choice", {name: "deadline", label: "V\xe6lg tidsfrist..."},
           ["option", {value: "-1"}, "ingen"],
           ["option", {value: "2"}, "2 timer"],
           ["option", {value: "24"}, "24 timer"],
           ["option", {value: "48"}, "2 dage"],
           ["option", {value: "168"}, "1 uge"] ],
-        ["choice", {name: "use"},
-          ["option", {value: "choose"}, "Svaret skal bruges til..."],
+        ["choice", {name: "use", label: "Svaret skal bruges til..."},
           ["option", {value: "personal"}, "Almen interesse"],
           ["option", {value: "business"}, "Erhverv"],
           ["option", {value: "school1"}, "Folkeskole"],
@@ -32,7 +31,6 @@ function main(mui) {
 }
 
 function settings(mui) {
-  mui.loading();
   var email = mui.storage.getItem('email');
   var mobile = mui.storage.getItem('mobile');
   var answer = mui.storage.getItem('answer');
@@ -48,37 +46,41 @@ function settings(mui) {
 }
 
 function saveSettings(mui) {
-  mui.loading();
   mui.storage.setItem('email', mui.formValue("email"));
   var email = mui.storage.getItem('email');
   mui.storage.setItem('mobile', mui.formValue("mobile"));
   var mobile = mui.storage.getItem('mobile');
   mui.storage.setItem('answer', mui.formValue("answer"));
   var answer = mui.storage.getItem('answer');
-  mui.showPage(["page", {title: "Indstillinger"},
-      ["section",
-        ["input", {type: "email", name: "email", label: "Min mailadresse", value: email}],
-        ["input", {type: "tel", name: "mobile", label: "Mit mobilnummer", value: mobile}],
-        ["choice", {name: "answer", value: answer},
-          ["option", {value: "choose"}, "Jeg vil have svar p\xe5..."],
-          ["option", {value: "email"}, "Email"],
-          ["option", {value: "sms"}, "SMS"], ] ],
-        ["button", {fn: main}, "Skriv Sp\xf8rgsmål"] ]);
+  main(mui);
 }
 
 function ask(mui) {     
+
+  var hints = {};
+  if(!mui.formValue("question")) {
+    hints.question = "husk at stille et sporgsmaal";
+  }
+  if(!mui.formValue("use")) {
+    hints.use = "udfyld ogsaa dette";
+  }
+  if(Object.keys(hints).length >0) {
+    mui.showPage(mui.setHints(mui.prevPage(), hints));
+    return;
+  }
+
   mui.loading();
   var deadline = "";
-  if (mui.formValue("deadline") !== "-1" && mui.formValue("deadline") !== "choose" ) {
+  if (mui.formValue("deadline") !== "-1" && mui.formValue("deadline")) {
     deadline = " indenfor de n\xe6ste " + mui.formValue("deadline") + " timer";
   }
   var answer = mui.storage.getItem('answer');
   var email = mui.storage.getItem('email');
   var mobile = mui.storage.getItem('mobile');
   var answerText = "";
-  if (answer === "email" && email !== "") {
+  if (answer === "email" && email) {
     answerText = " p\xe5 " + email; 
-  } else if (answer === "sms" && mobile !== "") {
+  } else if (answer === "sms" && mobile) {
     answerText = " via sms til " + mobile;
   }
   mui.callJsonpWebservice("http://didicas.dbc.dk/openquestion.addi.dk/trunk/", "callback", 
@@ -86,7 +88,6 @@ function ask(mui) {
       agencyId: "150024",
       qandaServiceName: "Biblioteksvagten",
       questionContent: mui.formValue("question"),
-      questionDeadline: mui.formValue("deadline"),
       questionUsage: mui.formValue("use"),
       userEmail: email,
       userMobilePhone: mobile,
