@@ -1,6 +1,3 @@
-require("xmodule").def("main",function(){
-require("mui");
-
 function main(mui) {
   var email = mui.storage.getItem('email');
   var mobile = mui.storage.getItem('mobile');
@@ -127,5 +124,4 @@ function ask(mui) {
     });
 }
 
-require("mui").setMain(main);
-});
+mui.setMain(main);
