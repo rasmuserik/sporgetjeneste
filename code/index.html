@@ -1,19 +1,32 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-    <title>Sp&oslash;rgetjenesten</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script src="mui/jquery-1.6.min.js"></script>
-    <script src="mui/jsonml.js"></script>
-    <script src="mui/mui.js"></script>
-    <link rel="stylesheet" href="mui/mui.css" />
-    <script src="main.js"></script>
-</head> 
+﻿<!doctype html>
+<html class="no-js" manifest="mui.appcache">
+<head>
+  <meta charset="utf-8">
+  <title>MUI sample</title>
+  <meta name="description" content="">
+  <meta name="author" content="DBC/rje">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320"/>
+  <meta name="viewport" content="width=320, initial-scale=1.0">
+  <!--meta name="viewport" content="width=device-width, initial-scale=1.0"-->
+  <link rel="apple-touch-icon-precomposed" href="icon.png" !-- 114x114px -->
+  <link rel="shortcut icon" href="icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-startup-image" href="splash.png" !-- 320x460px -->
+  <link rel="stylesheet" href="mui/mui.css">
+</head>
+
 <body>
 <div id="container">
-<div id="current">
+  <div id="current"></div>
+  <div class="contentend"></div>
 </div>
-<div class="contentend"></div>
-</div>
+<div id="loading">Loading...</div>
+
+<script src="mui/es5shim.js"></script>
+<script src="mui/jquery16min.js"></script>
+<script src="mui/jsonml.js"></script>
+<script src="mui/mui.js"></script>
+<script src="main.js"></script>
 </body>
-</html>
