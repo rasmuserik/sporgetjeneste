@@ -1,5 +1,6 @@
 CACHE MANIFEST
 
+config.xml
 icon.png
 index.html
 main.js
@@ -7,11 +8,13 @@ mui.appcache
 splash.png
 mui/es5shim.js
 mui/jquery16min.js
+mui/jquerymobile.css
+mui/jquerymobile.js
 mui/json2.js
 mui/jsonml.js
+mui/mui
 mui/mui.css
 mui/mui.js
-#mui/modernizr.js
 
 NETWORK:
 
