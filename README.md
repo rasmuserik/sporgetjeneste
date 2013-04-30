@@ -1,4 +1,4 @@
-# Mobile app for Spørgetjenesten ("the question service")
+# ![logo](https://solsort.com/_logo.png) Mobile app for Spørgetjenesten ("the question service")
 
 In order to build this application you need to check out mui (dbc-svn: skuffe/rje/mui, github: rasmuserik/mui) into the parent directory.
 Then the application can be build with either `cd android; ant debug install` or `open ios/AppDBC.xcodeproj` on Android and PhoneGap for xcode has to be installed for the respective platforms.
